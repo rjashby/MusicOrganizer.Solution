@@ -11,7 +11,7 @@ namespace MusicOrganizer.Controllers
     [HttpGet("/artists")]
     public ActionResult Index()
     {
-      List<Category> allArtists = Artist.GetAll();
+      List<Artist> allArtists = Artist.GetAll();
       return View(allArtists);
     }
 
@@ -33,13 +33,13 @@ namespace MusicOrganizer.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Artist selectedArtist =Artist.Find(id);
-      List<Item> artistRecords = selectedArtist.Records;
+      List<Record> artistRecords = selectedArtist.Records;
       model.Add("artist", selectedArtist);
-      model.Add("record", categoryRecord);
+      model.Add("records", artistRecords);
       return View(model);
     }
 
-    // This one creates new Items within a given Category, not new artists:
+    // This one creates new Records for a given Artist, not new Artists:
     [HttpPost("/artists/{artistId}/records")]
     public ActionResult Create(int artistId, string recordDescription)
     {

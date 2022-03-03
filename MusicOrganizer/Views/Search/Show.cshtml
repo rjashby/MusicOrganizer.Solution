@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Add an Artist</h1>
-    <p>Add an artist here:</p>
+    <h1>Search for an Artist</h1>
+    <p>Enter your artist here:</p>
 
-    <form action="/artists" method="post">
-      <label for="artistName">artist name</label>
-      <input id="artistName" name="artistName" type="text">
+    <form action="/search_by_artist" method="get">
+      <label for="searchArtist">artist name</label>
+      <input id="searchArtist" name="searchArtist" type="text">
       <button type="submit">Add</button>
     </form>
 
     <p><a href="/">Back home</a></p>
+    <hr>
     <p><a href="/artists">Back to Artists.</a></p>
   </body>
 </html>

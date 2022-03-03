@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My To-Do List!</title>
+    <title>Music Organizer!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <h1>To Do List Item Details: </h1>
+    <h1>Music Organizer Record Details: </h1>
 
-    <h2>@Model["item"].Description</h2>
-    <h3>Category: @Model["category"].Name</h3>
+    <h2>@Model["record"].Description</h2>
+    <h3>Artist: @Model["artist"].Name</h3>
 
-    <a href='/categories/@Model["category"].Id/items/new'>Add another item</a>
-    <a href='/categories'>View all categories</a>
+    <a href='/artists/@Model["artist"].Id/items/new'>Add another record</a>
+    <a href='/artists'>View all artists</a>
   </body>
 </html>

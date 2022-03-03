@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 
-namespace ToDoList.Models
+namespace MusicOrganizer.Models
 {
-  public class Category
+  public class Artist
   {
-    private static List<Category> _instances = new List<Category> {};
+    private static List<Artist> _instances = new List<Artist> {};
     public string Name { get; set; }
     public int Id { get; }
-    public List<Item> Items { get; set; }
+    public List<Record> Records { get; set; }
 
-    public Category(string categoryName)
+    public Artist(string artistName)
     {
-      Name = categoryName;
+      Name = artistName;
       _instances.Add(this);
       Id = _instances.Count;
-      Items = new List<Item>{};
+      Records = new List<Record>{};
     }
 
     public static void ClearAll()
@@ -22,19 +22,19 @@ namespace ToDoList.Models
       _instances.Clear();
     }
 
-    public static List<Category> GetAll()
+    public static List<Artist> GetAll()
     {
       return _instances;
     }
 
-    public static Category Find(int searchId)
+    public static Artist Find(int searchId)
     {
       return _instances[searchId-1];
     }
 
-    public void AddItem(Item item)
+    public void AddRecord(Record record)
     {
-      Items.Add(item);
+      Records.Add(record);
     }
   }
 }

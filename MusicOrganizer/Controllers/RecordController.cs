@@ -1,34 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using MusicOrganizer.Models;
 using System.Collections.Generic;
 
-namespace ToDoList.Controllers
+namespace MusicOrganizer.Controllers
 {
-  public class ItemsController : Controller
+  public class RecordsController : Controller
   {
 
-    [HttpGet("/categories/{categoryId}/items/new")]
-    public ActionResult New(int categoryId)
+    [HttpGet("/artists/{artistId}/records/new")]
+    public ActionResult New(int artistId)
     {
-      Category category = Category.Find(categoryId);
-      return View(category);
+      Artist artist = Artist.Find(artistId);
+      return View(artist);
     }
 
-    [HttpGet("/categories/{categoryId}/items/{itemId}")]
-    public ActionResult Show(int categoryId, int itemId)
+    [HttpGet("/artists/{artistId}/records/{recordId}")]
+    public ActionResult Show(int artistId, int recordId)
     {
-      Item item = Item.Find(itemId);
-      Category category = Category.Find(categoryId);
+      Record record = Record.Find(recordId);
+      Artist artist = Artist.Find(artistId);
       Dictionary<string, object> model = new Dictionary<string, object>();
-      model.Add("item", item);
-      model.Add("category", category);
+      model.Add("record", record);
+      model.Add("artist", artist);
       return View(model);
     }
 
-    [HttpPost("/items/delete")]
+    [HttpPost("/records/delete")]
     public ActionResult DeleteAll()
     {
-      Item.ClearAll();
+      Record.ClearAll();
       return View();
     }
 

@@ -7,27 +7,20 @@ namespace MusicOrganizer.Controllers
   public class SearchController : Controller
   {
     [HttpGet("/search_by_artist")]
-    public ActionResult New()
+    public ActionResult Index()
     {
-      return View();
+      return View(allArtists);
     }
-  }
-}
-
-
-[HttpGet("/artists/{id}")]
-    public ActionResult Show(int id)
+    
+    [HttpGet("/search_by_artist/{searchString}")]
+    public ActionResult Show(string searchString)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Artist selectedArtist =Artist.Find(id);
+      Artist selectedArtist = Artist.Search(searchString);
       List<Record> artistRecords = selectedArtist.Records;
       model.Add("artist", selectedArtist);
       model.Add("records", artistRecords);
       return View(model);
     }
-
-    List<Artist> list = new List<Artist>(Records);
-        
-        string result = list.Find(name => name == "input");
-        
-        Console.WriteLine(result);
+  }
+}

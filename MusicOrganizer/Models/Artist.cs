@@ -36,5 +36,11 @@ namespace MusicOrganizer.Models
     {
       Records.Add(record);
     }
+
+    public static Artist Search(string searchString)
+    {
+      Artist result = _instances.Find(artist => artist.Name == searchString);
+      return result;
+    }
   }
 }
